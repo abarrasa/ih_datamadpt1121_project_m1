@@ -7,8 +7,6 @@ def to_mercator(lat, long):
     c = c.to_crs(3857)
     return c
 
-def distance_meters(lat_start, long_start, lat_finish, long_finish):
+def distance_meters(mercator_start, mercator_finish):
     # return the distance in metres between to latitude/longitude pair point in degrees (i.e.: 40.392436 / -3.6994487)
-    start = to_mercator(lat_start, long_start)
-    finish = to_mercator(lat_finish, long_finish)
-    return start.distance(finish)
+    return mercator_start.distance(mercator_finish)

@@ -1,8 +1,5 @@
+# -*- coding: utf-8 -*-
 
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[4]:
 # Import all the libraries
 import requests
 import pandas as pd
@@ -17,12 +14,8 @@ import argparse
 #help = "hola") #escribir una ayuda para ver que poner o que nos hace es describirnos la variable, si no lo ponemos no pasaria nada, pero es para que sepa que es la variable la persona que revisa el codigo.
 #args = parser.parse_args()
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--tipo", dest = "--tipo", help = "choose an option: closer or all") 
-args = parser.parse_args()
 
 
-# In[5]:
 #make functions to download the data from the database 
 def embajadas():
     response = requests.get('https://datos.madrid.es/egob/catalogo/201000-0-embajadas-consulados.json')
@@ -37,7 +30,7 @@ def embajadas():
     return embajadas_clean
 
 def estaciones():
-    estaciones = pd.read_json("../data/bicimad2.json", orient='records')
+    estaciones = pd.read_json("data/bicimad2.json", orient='records')
     geometry_coordinates = estaciones["geometry_coordinates"].str.split(expand=True)
     geometry_coordinates.columns = ['LONGITUD', 'LATITUD']
     geometry_coordinates['LONGITUD'] = geometry_coordinates['LONGITUD'].str.replace("[","")
@@ -50,7 +43,7 @@ def estaciones():
     estaciones_clean = estaciones_clean.rename(columns={"name": "BiciMAD station", "address": "Station location", "LONGITUD": "Longitud_final", "LATITUD": "Latitud_final"})
     return estaciones_clean
 
-# In[6]:
+
 
 def to_mercator(lat, long):
     # transform latitude/longitude data in degrees to pseudo-mercator coordinates in metres
@@ -96,21 +89,8 @@ def minimum():
     df_minimo = df_resultado[df_resultado["Place of interest"] == input('Pon el lugar de interés: ')]
     df_minimum = df_minimo[df_minimo['Distancia'] == df_minimo['Distancia'].min()]
     minimum_mod = df_minimum[["Place of interest","Type of place", "Place address","BiciMAD station","Station location"]]
-    return minimum_mod.to_csv("poner una ruta")
+    return minimum_mod.to_csv("Closer Station")
 
 minimum()
 
-
-if args.tipo == "CloserStation":
-    closer_station= minimum()
-    print(closer_station)
-    closer_station.to_csv("../Data/CloserStation.csv", sep= ";") #poner el nombre del archivo que quiero que me cree cuadno salga el output
-    print("Closer Station file has been saved in Data")
-elif args.tipo == "AllStations":
-    all_places = all_minimum()
-    print(all_places)
-    all_places.to_csv("../Data/AllStations.csv", sep= ";")
-    print("All Stations file has been saved in Data")
-else:
-    print("wrong option")
 
