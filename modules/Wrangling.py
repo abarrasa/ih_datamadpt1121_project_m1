@@ -3,23 +3,23 @@ from modules import Acquisition as acq
 from modules import geo_calculations as geo
 import pandas as pd
 
-embajadas_clean = acq.embajadas()
-estaciones_clean = acq.estaciones()
+embassies_def = acq.embassies()
+stations_def = acq.stations()
 
 def mercator_emb():
-    embajadas_clean["mercator_start"] = embajadas_clean.apply(lambda x: geo.to_mercator(x['Longitud_inicial'], x['Latitud_inicial']), axis=1)
-    return embajadas_clean
+    embassies_def["mercator_start"] = embassies_def.apply(lambda x: geo.to_mercator(x['Latitude_start'],x['Longitude_start']),axis=1)
+    return embassies_def
 
-embajadas_clean = mercator_emb()
+embassies_clean = mercator_emb()
 
 def mercator_est():
-    estaciones_clean["mercator_finish"] = estaciones_clean.apply(lambda x: geo.to_mercator(x["Latitud_final"], x["Longitud_final"]), axis=1)
-    return estaciones_clean
+    stations_def["mercator_finish"] = stations_def.apply(lambda x: geo.to_mercator(x['Latitude_finish'],x['Longitude_finish']),axis=1)
+    return stations_def
 
-estaciones_clean = mercator_est()
+stations_def = mercator_est()
 
 def merge():
-    df_resultado = pd.merge(embajadas_clean,estaciones_clean, how='cross')
+    df_resultado = pd.merge(embassies_def,stations_def, how="cross")
     return df_resultado
 
 df_resultado = merge()
