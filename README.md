@@ -2,24 +2,31 @@
 
 ## **BiciMAD Stations near embassies and consulates**
 
-Ironhack Madrid - Data Analytics Part Time - November 2021 - Project Module 1
+Ironhack Data Analytics Module 1 Project
 
-## **Data:**
+In this **data pipeline** you will find the nearnest BiciMAD station from any embassy or consulate in Madrid.
 
-In this **Data Pipeline** you will find the nearnest BiciMAD station from any embassy or consulate in Madrid. 
+## **Data Pipeline:**
 
-Due to the [`argparse`](https://docs.python.org/3/howto/argparse.html) function*(here you have more information), you can choose two options to obtain the output table:
+To create this we used Python 3.7 and installed several libraries:
+    - Pandas
+    - Geopandas
+    - Requests
+    - Argparse
+    - Sys
 
-- **“minimum”:** if you choose this one, you will get a `.csv` with the address of the closest BiciMAD station.
-- **"all":**  with this option, you will obtain a `.csv` with the nearest BiciMAD station to any embassy or consulate.
+**Usage**
 
-Also, when you introduce the name of any embassy, but you have a mistake, with [FuzzyWuzzy](https://pypi.org/project/fuzzywuzzy/). the pipeline will recognize the correct name you aim to introduce.
+Due to the [`argparse`](https://docs.python.org/3/howto/argparse.html) function, in the terminal, you can run the pipeline and choose two options to obtain the output table.
+```bash
+    python main.py -op "   "
+````
+ -**“minimum”:** if you choose this one, the pipeline will ask you for an input and you will get a `.csv` with the address of the closest BiciMAD station.
+    -**"all":**  with this option, you will obtain a `.csv` with the nearest BiciMAD station to any embassy or consulate in Madrid.
 
-
---- 
+Also, with *[FuzzyWuzzy]*(https://pypi.org/project/fuzzywuzzy/) if you have any mistake writing the input, the pipeline will recognize the correct name you aim to introduce.
 
 ## **Project Main Stack**
-
 - [Azure SQL Database](https://portal.azure.com/)
 
 - [SQL Alchemy](https://docs.sqlalchemy.org/en/13/intro.html) (alternatively you can use _Azure Data Studio_)
@@ -31,7 +38,6 @@ Also, when you introduce the name of any embassy, but you have a mistake, with [
 - Module `geo_calculations.py`
 
 - [Argparse](https://docs.python.org/3.7/library/argparse.html)
-
 
 
 
