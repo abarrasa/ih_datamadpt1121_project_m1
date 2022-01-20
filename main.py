@@ -12,10 +12,10 @@ if __name__ == '__main__':
     stations_clean = wa.mercator_est()
     df_resultado = ana.apply_distance()
 
-
+#To define the argparse function to make different options to print
 def argument_parser():
     parser = argparse.ArgumentParser(description='Stations')
-    parser.add_argument('-op','--options', type=str, help= 'Calculate the closest station from a point or several. “minumum” calculates the distance from an indicated monument. “all” calculates the nearest station from all monuments.')
+    parser.add_argument('-op','--options', type=str, help= 'Introduce "all" or "minimum" in order to print the BiciMAD stations')
     args=parser.parse_args()
     return args
 

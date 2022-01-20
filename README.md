@@ -1,27 +1,18 @@
 <p align="left"><img src="https://cdn-images-1.medium.com/max/184/1*2GDcaeYIx_bQAZLxWM4PsQ@2x.png"></p>
 
-# __ih_datamadpt1121_project_m1__
+# BiciMAD Stations near embassies and consulates
 
 Ironhack Madrid - Data Analytics Part Time - November 2021 - Project Module 1
 
 ## **Data:**
 
-There are 2 main datasources:
+In this **Data Pipeline** you will find the nearnest BiciMAD station from any embassy or consulate in Madrid. 
 
-- **Azure SQL Database.** The database contains information from the BiciMAD stations including their location (i.e.: latitude / longitude). In order to access the database you may need the following credentials:
-```
-Server name:   sqlironhack
-Database:      BiciMAD
-```
-> __IMPORTANT =>__ Username and password will be provided in class.
+Due to the argparse function*, You can choose two options to obtain the data:
 
+- **“minimum”:** if you choose this one, you will get a .csv with the address of the closest BiciMAD station.
+- **"all":**  with this option, you will obtain a .csv with the closest BiciMAD station to any embassy or consulate.
 
-- **API REST.** We will use the API REST from the [Portal de datos abiertos del Ayuntamiento de Madrid](https://datos.madrid.es/nuevoMadrid/swagger-ui-master-2.2.10/dist/index.html?url=/egobfiles/api.datos.madrid.es.json#/), where you can find the __Catálogo de datos__ with more than 70 datasets.
-
-> __IMPORTANT =>__ Specific datasets will be assigned to each student in order to perform the challenges.
-
-
----
 
 ## **Main Challenge:**
 

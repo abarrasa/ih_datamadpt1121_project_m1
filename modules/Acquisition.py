@@ -2,7 +2,7 @@
 import requests
 import pandas as pd
 
-#make functions to download the data from the database 
+#To make functions to import the data from the database 
 def embassies():
     response = requests.get('https://datos.madrid.es/egob/catalogo/201000-0-embajadas-consulados.json')
     resultado = response.json()
