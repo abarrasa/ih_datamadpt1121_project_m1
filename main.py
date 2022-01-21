@@ -6,10 +6,10 @@ from modules import Reporting as re
 from modules import Acquisition as acq
 
 if __name__ == '__main__':
-    embassies_clean = acq.embassies()
-    stations_clean = acq.stations()
-    embassies_clean = wa.mercator_emb()
-    stations_clean = wa.mercator_est()
+    embassies_def = acq.embassies()
+    stations_def = acq.stations()
+    embassies_def = wa.mercator_emb()
+    stations_def = wa.mercator_est()
     df_resultado = ana.apply_distance()
 
 #To define the argparse function to make different options to print
@@ -27,10 +27,10 @@ def main(arguments):
     elif arguments.options == 'all':
         print(re.all_minimum())
     print('\n\n')
-    #print(f'The result is ==> {result}')
     print('\n')
     print('--//--- closing pipeline ---//--')
-    
+    print('--//--- File exported ---//--')
 # Pipeline execution
 if __name__ == '__main__':
     main(argument_parser())
+

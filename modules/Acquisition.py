@@ -10,7 +10,7 @@ def embassies():
     embassies["Type of place"]= "Embajadas y Consulados"
     embassies = embassies.rename(columns={"title": "Place of interest", "address.street-address": "Place address", "location.longitude": "Longitude_start", "location.latitude": "Latitude_start"}, errors="raise")
     embassies_def = embassies[["Place of interest","Type of place","Place address","Longitude_start","Latitude_start"]]
-    embassies_def['Latatitude_start'] = pd.to_numeric(embassies_def['Latitude_start'],errors = 'coerce')
+    embassies_def['Latitude_start'] = pd.to_numeric(embassies_def['Latitude_start'],errors = 'coerce')
     embassies_def['Longitude_start'] = pd.to_numeric(embassies_def['Longitude_start'],errors = 'coerce')
     return embassies_def
 
