@@ -20,6 +20,7 @@ Due to the [`argparse`](https://docs.python.org/3/howto/argparse.html) function,
 ```  
 - **“minimum":** if you choose this one, the pipeline will ask you for an input and you will get a `.csv` with the address of the closest BiciMAD station.
 
+
 - **"all":**  with this option, you will obtain a `.csv` with the nearest BiciMAD station to any embassy or consulate in Madrid.
 
 Also, with [FuzzyWuzzy](https://pypi.org/project/fuzzywuzzy/) if you have any mistake writing the input, the pipeline will recognize the correct name you aim to introduce.
