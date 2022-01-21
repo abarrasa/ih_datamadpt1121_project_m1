@@ -23,7 +23,7 @@ Due to the [`argparse`](https://docs.python.org/3/howto/argparse.html) function,
 
 - **"all":**  with this option, you will obtain a `.csv` with the nearest BiciMAD station to any embassy or consulate in Madrid.
 
-Also, with [FuzzyWuzzy](https://pypi.org/project/fuzzywuzzy/) if you have any mistake writing the input, the pipeline will recognize the correct name you aim to introduce.
+Don´t worry if you write wrong any place of interest, with [FuzzyWuzzy](https://pypi.org/project/fuzzywuzzy/) the pipeline will recognize the correct name you aim to introduce.
 
 ## **Project Main Stack**
 - [Azure SQL Database](https://portal.azure.com/)

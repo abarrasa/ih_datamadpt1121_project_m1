@@ -20,7 +20,7 @@ def mercator_est():
 
 stations_def = mercator_est()
 
-#Here we combine both dataframes to get just one 
+#Here we combine both dataframes to get just one with all the data
 def merge():
     df_resultado = pd.merge(embassies_def,stations_def, how="cross")
     return df_resultado
